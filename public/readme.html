@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fastify TypeScript Starter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <img src="./pixel-cat.png" alt="pixel-cat" class="w-32 h-32" />
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-4xl font-bold text-center text-indigo-700 mb-2">🚀FastyMini: Fastify TypeScript MongoDB CRUD + Vitest</h1>
+
+      <!-- Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mt-4 mb-8">
+        <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen.svg" alt="Node.js" />
+        <img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm" />
+        <img src="https://img.shields.io/npm/v/fastify.svg" alt="Fastify" />
+        <img src="https://img.shields.io/badge/bundler-esbuild-ffcf00.svg" alt="esbuild" />
+        <img src="https://img.shields.io/badge/code%20style-ESLint-purple.svg" alt="ESLint" />
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT" />
+      </div>
+
+      <!-- Description -->
+      <p class="text-center text-lg text-gray-700 mb-10">
+        A modern, lightweight setup for a <strong>Fastify</strong> project with <strong>TypeScript</strong>, 
+        <strong>MongoDB</strong>, and <strong>Vitest</strong> testing, optimized for fast development and efficient CRUD operations using
+        <strong>esbuild</strong> and <strong>Mongoose</strong>.
+      </p>
+
+      <!-- Sections -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">📦 Tech Stack</h2>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Fastify</strong> v5.4.0 – Ultra-fast HTTP framework with static file serving</li>
+          <li><strong>TypeScript</strong> v5.8.3 – Static typing for Node.js</li>
+          <li><strong>MongoDB</strong> with <strong>Mongoose</strong> v8.16.5 – Document database with ODM</li>
+          <li><strong>Vitest</strong> v3.2.4 – Fast testing framework with MongoDB Memory Server</li>
+          <li><strong>esbuild</strong> v0.25.6 – Lightning-fast bundler</li>
+          <li><strong>nodemon</strong>, <strong>wait-on</strong>, <strong>concurrently</strong> – Hot reloading</li>
+          <li><strong>ESLint</strong> v9.31.0 – Code linting</li>
+          <li><strong>Typebox</strong> v0.34.37 – Typed schema validation</li>
+          <li><strong>dotenv</strong> v17.2.0 – Env variable management</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">📁 Project Structure</h2>
+        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm overflow-auto">
+.
+├── src/
+│   ├── index.ts         # Fastify application entry point
+│   ├── server.ts        # Server configuration
+│   ├── controllers/     # CRUD operation handlers
+│   ├── interfaces/      # TypeScript interfaces for requests/responses
+│   ├── models/          # Mongoose models and schemas
+│   ├── plugins/         # Fastify plugins (MongoDB connection, config)
+│   └── routes/          # API route definitions
+├── dist/                # Compiled files (esbuild output)
+├── public/              # Static assets
+├── settings/            # Build and project settings
+├── esbuild.config.ts    # esbuild configuration
+├── eslint.config.mjs    # ESLint configuration
+├── tsconfig.json        # TypeScript configuration
+├── nodemon.json         # Nodemon configuration
+├── package.json         # Dependencies and scripts
+└── .env                 # Env variables (MongoDB connection string)
+      </pre
+        >
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">🗄️ MongoDB CRUD Operations</h2>
+        <p class="mb-4">This template includes a complete CRUD implementation example with ExempleUser:</p>
+
+        <h3 class="text-lg font-medium mb-2">API Endpoints</h3>
+        <table class="table-auto w-full text-left border border-gray-300 mb-4">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 border">Method</th>
+              <th class="px-4 py-2 border">Endpoint</th>
+              <th class="px-4 py-2 border">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-4 py-2">GET</td>
+              <td class="border px-4 py-2">/exemple-users</td>
+              <td class="border px-4 py-2">Get all users</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">GET</td>
+              <td class="border px-4 py-2">/exemple-users/:id</td>
+              <td class="border px-4 py-2">Get user by ID</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">POST</td>
+              <td class="border px-4 py-2">/exemple-users</td>
+              <td class="border px-4 py-2">Create new users</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">PATCH</td>
+              <td class="border px-4 py-2">/exemple-users/:id</td>
+              <td class="border px-4 py-2">Update user by ID</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">DELETE</td>
+              <td class="border px-4 py-2">/exemple-users/:id</td>
+              <td class="border px-4 py-2">Delete user by ID</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="text-lg font-medium mb-2">Architecture Components</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Models</strong>: Mongoose schemas with static methods for database operations</li>
+          <li><strong>Interfaces</strong>: TypeScript interfaces for request/response typing</li>
+          <li><strong>Controllers</strong>: Business logic handlers with error management</li>
+          <li><strong>Routes</strong>: API endpoint definitions with proper typing</li>
+          <li><strong>Plugins</strong>: MongoDB connection and configuration management</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">⚙️ Scripts</h2>
+        <table class="table-auto w-full text-left border border-gray-300">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 border">Command</th>
+              <th class="px-4 py-2 border">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-4 py-2">npm run build:tsc</td>
+              <td class="border px-4 py-2">Compile with TypeScript</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">npm run build:esbuild</td>
+              <td class="border px-4 py-2">Compile with esbuild</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">npm run dev</td>
+              <td class="border px-4 py-2">Development mode with auto-reload</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">npm start</td>
+              <td class="border px-4 py-2">Run the built app (dist/index.js)</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">npm run lint</td>
+              <td class="border px-4 py-2">Lint code with ESLint</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">🚀 Getting Started</h2>
+        <h3 class="text-lg font-medium">Prerequisites</h3>
+        <ul class="list-disc list-inside mb-4">
+          <li>Node.js (>= 18.x)</li>
+        </ul>
+
+        <h3 class="text-lg font-medium">Installation</h3>
+        <div class="mb-4">
+          <p class="mb-2"><strong>1. Install dependencies:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-3">npm install</pre>
+          
+          <p class="mb-2"><strong>2. Setup environment variables:</strong></p>
+          <p class="text-sm text-gray-600 mb-2"><strong>On macOS/Linux:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-2">cp .env.template .env</pre>
+          
+          <p class="text-sm text-gray-600 mb-2"><strong>On Windows:</strong></p>
+          <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-3">copy .env.template .env</pre>
+          
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+            <p class="text-sm text-blue-800"><strong>Important:</strong> Make sure to copy <code>.env.template</code> to <code>.env</code> and configure your environment variables as needed.</p>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-medium">Development</h3>
+        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-2">npm run dev</pre>
+        <p class="text-sm text-gray-600 mb-4">Compiles with esbuild, watches files, runs app via nodemon</p>
+
+        <h3 class="text-lg font-medium">Production</h3>
+        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-4">npm run build:esbuild && npm start</pre>
+
+        <h3 class="text-lg font-medium">Testing</h3>
+        <pre class="bg-gray-800 text-white rounded-md p-4 text-sm mb-2">npm test</pre>
+        <p class="text-sm text-gray-600 mb-4">
+          Runs the test suite with Vitest. The testing setup includes MongoDB Memory Server for isolated database testing
+          and pre-configured test utilities in <code>src/utils/testServer.ts</code>.
+        </p>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">🔧 Configuration</h2>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>dotenv</strong>: Loads env variables from .env (including MongoDB connection string)</li>
+          <li><strong>MongoDB</strong>: Configure connection string in .env as MONGODB_URI</li>
+          <li><strong>ESLint</strong>: Flat config with `@eslint/js` & `typescript-eslint`</li>
+          <li><strong>Typebox</strong>: Enables schema validation</li>
+          <li><strong>Mongoose</strong>: ODM with TypeScript support and custom static methods</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">🛠️ Customization</h2>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Edit `esbuild.config.ts` for build options</li>
+          <li>Adjust `tsconfig.json` for TS settings</li>
+          <li>Add custom Fastify plugins in `plugins/`</li>
+          <li>Create new models following the `ExempleUser` pattern</li>
+          <li>Add new CRUD endpoints using the established architecture</li>
+          <li>Configure MongoDB connection in `plugins/mongodb.ts`</li>
+        </ul>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold text-indigo-600 mb-3">📝 Notes</h2>
+        <ul class="list-disc list-inside space-y-1">
+          <li>esbuild handles dev + prod builds</li>
+          <li>pino-pretty used for clean logs in dev</li>
+          <li>Extendable ESLint config (JSON, Markdown, etc.)</li>
+          <li>Fastify externals excluded for smaller builds</li>
+          <li>MongoDB connection with automatic reconnection</li>
+          <li>Mongoose models with TypeScript support and custom methods</li>
+          <li>Complete CRUD example ready to extend</li>
+        </ul>
+      </section>
+
+      <footer class="text-center text-sm text-gray-500 mt-12">© MIT License</footer>
+    </div>
+  </body>
+</html>
